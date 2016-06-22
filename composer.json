@@ -1,0 +1,21 @@
+{
+    "name": "idealia/yii2-bad-word",
+    "description": "Bad word filter for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","bad word filter"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Piotr Grzelka",
+            "email": "piotr.grzelka@idealia.pl"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "idealia\\badword\\": "src"
+        }
+    }
+}
