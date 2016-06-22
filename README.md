@@ -21,8 +21,38 @@ or add
 
 to the require section of your `composer.json` file.
 
+Apply migrations
+
+```
+php yii migrate --migrationPath=@vendor/idealia/yii2-bad-word/migrations
+```
+
+Add to config file
+```
+'components' => [
+        'badword' => [
+            'class' => \idealia\badword\BadWord::class,
+            // 'obfuscation' => true,
+            'provider' => [
+                'class' => \idealia\badword\BadWordDbProvider::class
+            ]
+        ],
+]
+```
 
 Usage
 -----
 
-...
+```
+$foo = Yii::$app->badword->filter('your text with bad words to replace by ***');
+```
+
+In active record validator
+```
+public function rules()
+{
+   return [
+        ['title',  BadWordFilter::class],
+   ]
+}
+```
