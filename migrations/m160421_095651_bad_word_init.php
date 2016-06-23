@@ -29,13 +29,18 @@ class m160421_095651_bad_word_init extends \yii\db\Migration
         $this->dropTable($this->table);
     }
 
+    /**
+     * insert words from file
+     */
     private function installWords()
     {
         $data = file(__DIR__ . '/../bad_words_pl.txt');
 
+        $bom = pack('H*', 'EFBBBF');
+
         $rows = [];
         foreach ($data as $row) {
-            $rows[] = [trim($row)];
+            $rows[] = [trim(preg_replace("/^$bom/", '', $row))];
         }
 
         Yii::$app
