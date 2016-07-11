@@ -104,7 +104,7 @@ class BadWord extends Component
             }, $bad_words);
         }
 
-        return "/(" . implode('|', $bad_words) . ")/ms";
+        return "/(" . implode('|', $bad_words) . ")/msi";
     }
 
 }
